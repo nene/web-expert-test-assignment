@@ -7,6 +7,13 @@ function displayUsers(users) {
 function usersToHtml(users) {
   const userElements = users.map((user) => {
     return html("div", { className: "user" }, [
+      html("img", {
+        className: "user-map",
+        alt: "Map image",
+        width: 300,
+        heigh: 200,
+        src: createMapUrl(user.address.geo),
+      }),
       html("div", { className: "user-field" }, [
         html("span", { className: "user-label" }, "Name: "),
         html("span", { className: "user-name" }, user.name),
@@ -56,6 +63,12 @@ function usersToHtml(users) {
   });
 
   return html("div", {}, userElements);
+}
+
+function createMapUrl({ lat, lng }) {
+  const token =
+    "pk.eyJ1IjoicmVua3UiLCJhIjoiY2xlOGdqYTQ0MDV1NzNvbW9rZ2R6Zmd6NiJ9.-ti9ZkUPQ2ckf8KEq8v0Rw";
+  return `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${lng},${lat},2,0/300x200?access_token=${token}`;
 }
 
 function filterUsersByName(users, searchString) {
