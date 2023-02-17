@@ -1,4 +1,5 @@
-const data = [
+// Global variable, used by users.js
+const ALL_USERS = [
   {
     id: 1,
     name: "Leanne Graham",

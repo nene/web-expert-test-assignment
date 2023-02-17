@@ -24,4 +24,4 @@ function html(tagName, attributes, contents) {
   return el;
 }
 
-document.getElementById("users").appendChild(renderUsers(data));
+document.getElementById("users").appendChild(renderUsers(ALL_USERS));
