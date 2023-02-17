@@ -6,7 +6,7 @@ function displayUsers(users) {
 
 function usersToHtml(users) {
   const userElements = users.map((user) => {
-    return html("p", {}, user.name);
+    return html("p", { className: "user" }, user.name);
   });
 
   return html("div", {}, userElements);
@@ -25,6 +25,7 @@ function filterUsersByName(users, searchString) {
  */
 function html(tagName, attributes, contents) {
   const el = document.createElement(tagName);
+  Object.assign(el, attributes);
   if (typeof contents === "string") {
     el.innerHTML = contents;
   } else if (Array.isArray(contents)) {
