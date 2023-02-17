@@ -34,7 +34,7 @@ function usersToHtml(users) {
       html("div", { className: "user-field" }, [
         html("span", { className: "user-label" }, "Address: "),
         html(
-          "a",
+          "span",
           { className: "user-address" },
           [
             user.address.street,
@@ -42,6 +42,14 @@ function usersToHtml(users) {
             user.address.city,
             user.address.zipcode,
           ].join(", ")
+        ),
+      ]),
+      html("div", { className: "user-field" }, [
+        html("span", { className: "user-label" }, "Company: "),
+        html(
+          "span",
+          { className: "user-company" },
+          `${user.company.name} (${user.company.catchPhrase}, ${user.company.bs})`
         ),
       ]),
     ]);
