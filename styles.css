@@ -2,6 +2,15 @@ html,
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  color: #041820;
+}
+
+a:link,
+a:active {
+  color: #1a728f;
+}
+a:hover {
+  color: #44bbe3;
 }
 
 .container {
@@ -12,12 +21,28 @@ body {
 .search {
   border: 1px solid lightblue;
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 15px;
   background: lightblue;
 }
 
 .user {
   border: 1px solid lightblue;
+  background: #f5fcff;
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 15px;
+  margin: 0.5em 0;
+}
+.user-field {
+  margin: 0.5em 0;
+}
+.user-label {
+  color: #37464c;
+}
+.user-name {
+  font-weight: bold;
+}
+.user-username,
+.user-email,
+.user-phone {
+  font-family: "Courier New", Courier, monospace;
 }

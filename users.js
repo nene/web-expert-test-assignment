@@ -6,7 +6,32 @@ function displayUsers(users) {
 
 function usersToHtml(users) {
   const userElements = users.map((user) => {
-    return html("p", { className: "user" }, user.name);
+    return html("div", { className: "user" }, [
+      html("div", { className: "user-field" }, [
+        html("span", { className: "user-label" }, "Name: "),
+        html("span", { className: "user-name" }, user.name),
+      ]),
+      html("div", { className: "user-field" }, [
+        html("span", { className: "user-label" }, "Username: "),
+        html("span", { className: "user-username" }, user.username),
+      ]),
+      html("div", { className: "user-field" }, [
+        html("span", { className: "user-label" }, "E-mail: "),
+        html("span", { className: "user-email" }, user.email),
+      ]),
+      html("div", { className: "user-field" }, [
+        html("span", { className: "user-label" }, "Phone: "),
+        html("span", { className: "user-phone" }, user.phone),
+      ]),
+      html("div", { className: "user-field" }, [
+        html("span", { className: "user-label" }, "Website: "),
+        html(
+          "a",
+          { className: "user-website", href: "http://" + user.website },
+          user.website
+        ),
+      ]),
+    ]);
   });
 
   return html("div", {}, userElements);
