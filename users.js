@@ -31,6 +31,19 @@ function usersToHtml(users) {
           user.website
         ),
       ]),
+      html("div", { className: "user-field" }, [
+        html("span", { className: "user-label" }, "Address: "),
+        html(
+          "a",
+          { className: "user-address" },
+          [
+            user.address.street,
+            user.address.suite,
+            user.address.city,
+            user.address.zipcode,
+          ].join(", ")
+        ),
+      ]),
     ]);
   });
 
