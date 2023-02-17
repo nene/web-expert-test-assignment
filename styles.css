@@ -26,6 +26,7 @@ a:hover {
 }
 
 .user {
+  position: relative;
   border: 1px solid lightblue;
   background: #f5fcff;
   border-radius: 5px;
@@ -49,4 +50,27 @@ a:hover {
 .user-map {
   padding: 10px 0;
   float: right;
+}
+
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+
+  border: 1px solid lightblue;
+  background: lightblue;
+  border-radius: 100%;
+  width: 22px;
+  height: 22px;
+  font-weight: bold;
+  color: white;
+}
+.delete-button:hover {
+  cursor: pointer;
+  background-color: #c2eaf8;
+  border-color: #c2eaf8;
+}
+.delete-button:active {
+  top: 7px;
+  right: 4px;
 }

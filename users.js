@@ -71,6 +71,7 @@ function usersToHtml(users) {
           `${user.company.name} (${user.company.catchPhrase}, ${user.company.bs})`
         ),
       ]),
+      html("button", { className: "delete-button" }, "X"),
     ]);
   });
 
