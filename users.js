@@ -92,8 +92,18 @@ function createMapUrl({ lat, lng }) {
 }
 
 function filterUsersByName(users, searchString) {
-  const regex = new RegExp(escapeRegExp(searchString).trim(), "i");
-  return users.filter((user) => regex.test(user.name));
+  const regex = new RegExp(
+    "^(.*?)(" + escapeRegExp(searchString).trim() + ")(.*?)$",
+    "i"
+  );
+  return users
+    .filter((user) => regex.test(user.name))
+    .map((user) => ({ ...user, name: highlightMatch(user.name, regex) }));
+}
+
+function highlightMatch(text, regex) {
+  const [_, before, match, after] = text.match(regex);
+  return `${before}<b>${match}</b>${after}`;
 }
 
 /**
