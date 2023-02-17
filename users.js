@@ -1,3 +1,7 @@
+// API token for static maps from mapbox.com
+const MAP_API_TOKEN =
+  "pk.eyJ1IjoicmVua3UiLCJhIjoiY2xlOGdqYTQ0MDV1NzNvbW9rZ2R6Zmd6NiJ9.-ti9ZkUPQ2ckf8KEq8v0Rw";
+
 function displayUsers(users) {
   const container = document.getElementById("users");
   container.innerHTML = "";
@@ -66,9 +70,7 @@ function usersToHtml(users) {
 }
 
 function createMapUrl({ lat, lng }) {
-  const token =
-    "pk.eyJ1IjoicmVua3UiLCJhIjoiY2xlOGdqYTQ0MDV1NzNvbW9rZ2R6Zmd6NiJ9.-ti9ZkUPQ2ckf8KEq8v0Rw";
-  return `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${lng},${lat},2,0/300x200?access_token=${token}`;
+  return `https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/${lng},${lat},2,0/300x200?access_token=${MAP_API_TOKEN}`;
 }
 
 function filterUsersByName(users, searchString) {
