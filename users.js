@@ -2,6 +2,14 @@
 const MAP_API_TOKEN =
   "pk.eyJ1IjoicmVua3UiLCJhIjoiY2xlOGdqYTQ0MDV1NzNvbW9rZ2R6Zmd6NiJ9.-ti9ZkUPQ2ckf8KEq8v0Rw";
 
+// Render initial list of users
+displayUsers(ALL_USERS);
+
+// Re-render users list when text typed to search box
+document.getElementById("search-box").addEventListener("keyup", (e) => {
+  displayUsers(filterUsersByName(ALL_USERS, e.target.value));
+});
+
 function displayUsers(users) {
   const container = document.getElementById("users");
   container.innerHTML = "";
@@ -102,9 +110,3 @@ function html(tagName, attributes, contents) {
 function escapeRegExp(string) {
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
-
-displayUsers(ALL_USERS);
-
-document.getElementById("search-box").addEventListener("keyup", (e) => {
-  displayUsers(filterUsersByName(ALL_USERS, e.target.value));
-});
