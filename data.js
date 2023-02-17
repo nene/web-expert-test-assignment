@@ -1,5 +1,5 @@
 // Global variable, used by users.js
-const ALL_USERS = [
+let ALL_USERS = [
   {
     id: 1,
     name: "Leanne Graham",

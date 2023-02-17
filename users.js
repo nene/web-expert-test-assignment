@@ -71,11 +71,20 @@ function usersToHtml(users) {
           `${user.company.name} (${user.company.catchPhrase}, ${user.company.bs})`
         ),
       ]),
-      html("button", { className: "delete-button" }, "X"),
+      html(
+        "button",
+        { className: "delete-button", onclick: () => deleteUser(user.id) },
+        "X"
+      ),
     ]);
   });
 
   return html("div", {}, userElements);
+}
+
+function deleteUser(id) {
+  ALL_USERS = ALL_USERS.filter((user) => user.id !== id);
+  displayUsers(ALL_USERS);
 }
 
 function createMapUrl({ lat, lng }) {
