@@ -1,19 +1,22 @@
 // API token for static maps from mapbox.com
 const MAP_API_TOKEN =
   "pk.eyJ1IjoicmVua3UiLCJhIjoiY2xlOGdqYTQ0MDV1NzNvbW9rZ2R6Zmd6NiJ9.-ti9ZkUPQ2ckf8KEq8v0Rw";
+// Current text by which we filter users
+let SEARCH_TEXT = "";
 
 // Render initial list of users
-displayUsers(ALL_USERS);
+displayUsers();
 
 // Re-render users list when text typed to search box
 document.getElementById("search-box").addEventListener("keyup", (e) => {
-  displayUsers(filterUsersByName(ALL_USERS, e.target.value));
+  SEARCH_TEXT = e.target.value;
+  displayUsers();
 });
 
-function displayUsers(users) {
+function displayUsers() {
   const container = document.getElementById("users");
   container.innerHTML = "";
-  container.appendChild(usersToHtml(users));
+  container.appendChild(usersToHtml(filterUsersByName(ALL_USERS, SEARCH_TEXT)));
 }
 
 function usersToHtml(users) {
@@ -84,7 +87,7 @@ function usersToHtml(users) {
 
 function deleteUser(id) {
   ALL_USERS = ALL_USERS.filter((user) => user.id !== id);
-  displayUsers(ALL_USERS);
+  displayUsers();
 }
 
 function createMapUrl({ lat, lng }) {
